@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nectar/view/screens/mobilenumber.dart';
 import 'package:nectar/viewModel/cubit/nectar_state.dart';
-
 import '../../viewModel/cubit/nectar_cubit.dart';
 class SignInScreen extends StatelessWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -37,6 +36,14 @@ class SignInScreen extends StatelessWidget {
                    Navigator.push(context, MaterialPageRoute(builder: (context)=>MobileNumberScreen()));
                  },
                   decoration:InputDecoration(
+                    suffixIcon: Padding(
+                      padding: const EdgeInsets.only(left: 15),
+                      child: Row(children: [
+                        Image.asset('assets/Rectangle 11.png',height: 16.h,),
+                        SizedBox(width: 5.w,),
+                        Text("+880",style: TextStyle(fontSize: 15.sp,fontWeight: FontWeight.bold),),
+                      ],),
+                    ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                           color:  Color(0xffE2E2E2)),),

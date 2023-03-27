@@ -49,7 +49,7 @@ class NectarCubit extends Cubit<NectarState>{
   }
   onSelectNum (Country country) {
     print('Select country: ${country.displayName}');
-    codeNumber.text=country.countryCode;
+    codeNumber.text=country.phoneCode;
     flagCountry.text=country.flagEmoji;
 
     emit(OnSelectSuccess());

@@ -22,9 +22,12 @@ class SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff53B175),
-      body: Center(
+      body: Hero(
+        tag:"GFG Tag",
+        child: Center(
     child: Image.asset("assets/Group 1.png",width: 250.w
-      ,)),
+        ,)),
+      ),
     );
   }
 }
