@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:nectar/view/screens/codeScreen.dart';
 import 'package:nectar/viewModel/cubit/nectar_cubit.dart';
 import 'package:nectar/viewModel/cubit/nectar_state.dart';
@@ -53,44 +54,19 @@ class MobileNumberScreen extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 15,right: 15),
-            child: TextFormField(
-              cursorColor:Color(0xffE2E2E2),
-              controller: cubit.numberController,
-              keyboardType: TextInputType.number,
-              decoration:InputDecoration(
-                prefixIcon: Expanded(
-                  child: SizedBox( width: 80.w,
-                    child: IconButton(onPressed: (){showCountryPicker(
-      context: context,
-      showPhoneCode: true, // optional. Shows phone code before the country name.
-      onSelect: cubit.onSelectNum);}
-      ,icon: cubit.codeNumber.text.isEmpty?
-                        Row(children: [
-        Image.asset('assets/Rectangle 11.png',height: 15.h,),
-                          SizedBox(width: 5.w,),
-                          Text("+880",style: TextStyle(fontSize: 13.sp,fontWeight: FontWeight.bold),),
-                          SizedBox(width: 5.w,),
-                          Container(color: Colors.black26,width: 2.w,)
-                        ],):
-                        Row(children: [
-                          //Text(cubit.flagCountry.text,style: TextStyle(fontSize: 13.sp,fontWeight: FontWeight.bold),),
-                          //Image.network(cubit.flagCountry.text,height: 5.h,),
-                        SizedBox(width: 5.w,),
-                        Text("+${cubit.codeNumber.text}",style: TextStyle(fontSize: 12.sp,fontWeight: FontWeight.bold),),
-                        SizedBox(width: 5.w,),
-                        Container(color: Colors.black26,width: 2.w,)
-                    ],),
-                ),
-                  ),),
-               hintText: "enter your number",
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                      color:  Color(0xffE2E2E2)),),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                      color:  Color(0xffE2E2E2))),),),
-          ),
-        ],),
+            child: IntlPhoneField(
+      decoration: InputDecoration(
+      labelText: 'Phone Number',
+      enabledBorder: OutlineInputBorder(
+                   borderSide: BorderSide(color:  Color(0xffE2E2E2)),),
+                focusedBorder: OutlineInputBorder(borderSide: BorderSide(
+                     color:  Color(0xffE2E2E2))),),
+      initialCountryCode: 'IN',
+      onChanged: (phone) {
+      print(phone.completeNumber);
+      },
+      )
+          ), ],),
       );
     }, listener: (context,state){});
   }

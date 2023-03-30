@@ -13,11 +13,14 @@ class NectarCubit extends Cubit<NectarState>{
  TextEditingController emailController=TextEditingController();
  TextEditingController passwordController=TextEditingController();
  TextEditingController usernameController=TextEditingController();
- TextEditingController codeNumber=TextEditingController();
- TextEditingController flagCountry=TextEditingController();
   static var formState=GlobalKey<FormState>();
   static var formState2=GlobalKey<FormState>();
-
+  List<Color> colorsC=[Color(0xffF8A44C),Color(0xff53B175)];
+  int count=1;
+  bool isShow=false;
+  bool isShowN=false;
+  bool isShowR=false;
+  int currentIndex=0;
  bool isObscure=true;
 
  showPassword(){
@@ -47,11 +50,30 @@ class NectarCubit extends Cubit<NectarState>{
   locationController.text=country.name;
   emit(OnSelectSuccess());
   }
-  onSelectNum (Country country) {
-    print('Select country: ${country.displayName}');
-    codeNumber.text=country.phoneCode;
-    flagCountry.text=country.flagEmoji;
-
-    emit(OnSelectSuccess());
+  plusCount (){
+   count++;
+   emit(PlusSuccess());
+  }
+  minisCount(){
+  if(count>0){
+    count--;
+  }
+   emit(MinisSuccess());
+  }
+  showWidget(){
+   isShow =! isShow;
+   emit(ShowSuccess());
+  }
+  showWidget2(){
+    isShowN =! isShowN;
+    emit(ShowSuccess());
+  }
+  showWidget3(){
+    isShowR =! isShowR;
+    emit(ShowSuccess());
+  }
+  changeCurrentIndex (i){
+   currentIndex=i;
+ emit(ChangeSuccess());
   }
 }
