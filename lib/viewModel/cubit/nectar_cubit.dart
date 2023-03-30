@@ -22,6 +22,7 @@ class NectarCubit extends Cubit<NectarState>{
   bool isShowR=false;
   int currentIndex=0;
  bool isObscure=true;
+ bool Obscure=true;
 
  showPassword(){
    isObscure =! isObscure;
