@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:nectar/view/screens/onBoardScreen.dart';
+import 'package:nectar/consts/consts.dart';
+import 'package:nectar/view/screens/auth/onBoardScreen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -21,7 +22,7 @@ class SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff53B175),
+      backgroundColor: green,
       body: Hero(
         tag:"GFG Tag",
         child: Center(

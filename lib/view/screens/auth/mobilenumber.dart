@@ -1,26 +1,28 @@
-import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:nectar/view/screens/codeScreen.dart';
-import 'package:nectar/viewModel/cubit/nectar_cubit.dart';
-import 'package:nectar/viewModel/cubit/nectar_state.dart';
+import 'package:nectar/consts/consts.dart';
+import 'package:nectar/viewModel/cubit/login_cubit/login-cubit.dart';
+import 'package:nectar/viewModel/cubit/login_cubit/login_state.dart';
+
+import 'codeScreen.dart';
+
 class MobileNumberScreen extends StatelessWidget {
   const MobileNumberScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<NectarCubit,NectarState>(builder: (context,state){
-     var cubit=NectarCubit.get(context);
+    return BlocConsumer<LoginCubit,LoginState>(builder: (context,state){
+     var cubit=LoginCubit.get(context);
       return Scaffold(
-        backgroundColor: Color(0xffFCFCFC),
+        backgroundColor: backGround,
         floatingActionButton: Container(
           height: 60.h,
           width: 60.h,
           child: FloatingActionButton(
-            backgroundColor: Color(0xff53B175),
+            backgroundColor: green,
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context)=>CodeScreen()));
             },
@@ -43,10 +45,10 @@ class MobileNumberScreen extends StatelessWidget {
                    Text("Enter your mobile number",style:
                    GoogleFonts.poppins(textStyle:
                    TextStyle(color: Colors.black,fontSize: 20.sp,fontWeight: FontWeight.bold),),),
-         SizedBox(height: 10.h,),
+         SizedBox(height: 25.h,),
                 Text("Mobile Number",style:
                 GoogleFonts.poppins(textStyle:
-                TextStyle(color: Color(0xff7C7C7C),fontSize: 16.sp,fontWeight: FontWeight.w600),),),
+                TextStyle(color: grey,fontSize: 16.sp,fontWeight: FontWeight.w600),),),
                  ],
          ),
               ),
@@ -58,9 +60,9 @@ class MobileNumberScreen extends StatelessWidget {
       decoration: InputDecoration(
       labelText: 'Phone Number',
       enabledBorder: OutlineInputBorder(
-                   borderSide: BorderSide(color:  Color(0xffE2E2E2)),),
+                   borderSide: BorderSide(color:  lightGrey),),
                 focusedBorder: OutlineInputBorder(borderSide: BorderSide(
-                     color:  Color(0xffE2E2E2))),),
+                     color:  lightGrey)),),
       initialCountryCode: 'IN',
       onChanged: (phone) {
       print(phone.completeNumber);

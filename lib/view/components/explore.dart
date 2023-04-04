@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nectar/consts/consts.dart';
 import 'package:nectar/viewModel/cubit/main_cubit/nectar_cubit.dart';
 import 'package:nectar/viewModel/cubit/main_cubit/nectar_state.dart';
 
-import '../../consts/consts.dart';
 import '../screens/details_exclusiveOffer.dart';
 
-class ExclusiveOffer extends StatelessWidget {
-  const ExclusiveOffer({Key? key}) : super(key: key);
+class Explore extends StatelessWidget {
+  const Explore({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,12 +27,12 @@ class ExclusiveOffer extends StatelessWidget {
                 elevation: 3,
                 child: InkWell(
                   onTap: () {
-                     Navigator.push(context,
+                    Navigator.push(context,
                         MaterialPageRoute(builder: (context) => DetailsExclusive()));
                   },
                   child: Padding(
                     padding:
-                        const EdgeInsets.only(top: 20, left: 20, right: 20),
+                    const EdgeInsets.only(top: 20, left: 20, right: 20),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,7 +40,7 @@ class ExclusiveOffer extends StatelessWidget {
                         Expanded( flex: 3,
                             child: Image.asset("assets/pngfuel 1.png")),
                         SizedBox(
-                          height: 20.h,
+                          height: 10.h,
                         ),
                         Expanded( flex: 1,
                           child: Text(
@@ -80,7 +80,7 @@ class ExclusiveOffer extends StatelessWidget {
                                 style: GoogleFonts.poppins(
                                   textStyle: TextStyle(
                                     color: Colors.black,
-                                    fontSize: 16.sp,
+                                    fontSize: 17.sp,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -93,14 +93,14 @@ class ExclusiveOffer extends StatelessWidget {
                                   style: ElevatedButton.styleFrom(
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
-                                            BorderRadius.circular(18.r)),
+                                        BorderRadius.circular(15.r)),
                                     backgroundColor: green,
                                   ),
                                   onPressed: () {},
                                   child: Image.asset("assets/Vector (5).png",color: Colors.white,),
 
-                                  ),
                                 ),
+                              ),
                             ],
                           ),
                         ),

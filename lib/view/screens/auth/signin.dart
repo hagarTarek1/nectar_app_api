@@ -2,18 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nectar/view/screens/mobilenumber.dart';
-import 'package:nectar/viewModel/cubit/nectar_state.dart';
-import '../../viewModel/cubit/nectar_cubit.dart';
+import 'package:nectar/consts/consts.dart';
+import 'package:nectar/view/screens/auth/mobilenumber.dart';
+import 'package:nectar/viewModel/cubit/login_cubit/login-cubit.dart';
+import 'package:nectar/viewModel/cubit/login_cubit/login_state.dart';
+
 class SignInScreen extends StatelessWidget {
   const SignInScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<NectarCubit,NectarState>(builder: (context,state){
-      var cubit=NectarCubit.get(context);
+    return BlocConsumer<LoginCubit,LoginState>(builder: (context,state){
+      var cubit=LoginCubit.get(context);
       return Scaffold(
-        backgroundColor: Color(0xffFCFCFC),
+        backgroundColor: backGround,
 
         extendBody: true,
         body: Column(
@@ -46,10 +48,10 @@ class SignInScreen extends StatelessWidget {
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                          color:  Color(0xffE2E2E2)),),
+                          color:  lightGrey),),
                     focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                        color: Color(0xffE2E2E2))),),),
+                        color: lightGrey)),),),
                 SizedBox(height: 20,),
                 Center(
                   child: Text("Or connect with social media",style:

@@ -3,18 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nectar/view/screens/login.dart';
-import 'package:nectar/viewModel/cubit/nectar_cubit.dart';
-import 'package:nectar/viewModel/cubit/nectar_state.dart';
+import 'package:nectar/consts/consts.dart';
+import 'package:nectar/view/screens/auth/login.dart';
+import 'package:nectar/viewModel/cubit/login_cubit/login-cubit.dart';
+import 'package:nectar/viewModel/cubit/login_cubit/login_state.dart';
 class SetLocation extends StatelessWidget {
   const SetLocation({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<NectarCubit,NectarState>(builder: (context,state){
-     var cubit=NectarCubit.get(context);
+    return BlocConsumer<LoginCubit,LoginState>(builder: (context,state){
+     var cubit=LoginCubit.get(context);
       return Scaffold(
-        backgroundColor: Color(0xffFCFCFC),
+        backgroundColor: backGround,
         extendBody: true,
         extendBodyBehindAppBar: true,
         appBar: AppBar(leading: Icon(Icons.arrow_back_ios,color: Colors.black,),
@@ -35,17 +36,17 @@ class SetLocation extends StatelessWidget {
               Text("Swith on your location to stay in tune with"
                   ,style:
               GoogleFonts.poppins(textStyle:
-              TextStyle(fontSize: 14.sp,color:Color(0xff7C7C7C) ),),),
+              TextStyle(fontSize: 14.sp,color:grey ),),),
               Text("what’s happening in your area"
                 ,style:
                 GoogleFonts.poppins(textStyle:
-                TextStyle(fontSize: 14.sp,color:Color(0xff7C7C7C) ),),),
+                TextStyle(fontSize: 14.sp,color:grey ),),),
               SizedBox(height: 50.h,),
               Align( alignment: Alignment.topLeft,
                 child: Text("Your Area"
                   ,style:
                   GoogleFonts.poppins(textStyle:
-                  TextStyle(fontSize: 15.sp,color:Color(0xff7C7C7C),fontWeight: FontWeight.w600 ),),),
+                  TextStyle(fontSize: 15.sp,color:grey,fontWeight: FontWeight.w600 ),),),
               ),
 SizedBox(height: 20.h,),
               TextFormField(
@@ -55,22 +56,22 @@ SizedBox(height: 20.h,),
                     onSelect: cubit.onSelect
       );},
 
-                cursorColor:Color(0xffE2E2E2),
+                cursorColor:lightGrey,
                 controller: cubit.locationController,
                 keyboardType: TextInputType.none,
                 decoration:InputDecoration(
                   hintText: "Choose your area",
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                        color: Color(0xffE2E2E2)),),
+                        color: lightGrey),),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                        color: Color(0xffE2E2E2))),),),
+                        color: lightGrey)),),),
              SizedBox(height: 100,),
               Container(width: 320.w,height: 60.h,
                 child: ElevatedButton( style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(20.r)),
-                    backgroundColor:Color(0xff53B175)),
+                    backgroundColor:green),
                   onPressed: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
                   }, child: Text("submit",style:
