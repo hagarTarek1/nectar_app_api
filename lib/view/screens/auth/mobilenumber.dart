@@ -44,7 +44,7 @@ class MobileNumberScreen extends StatelessWidget {
                  children: [
                    Text("Enter your mobile number",style:
                    GoogleFonts.poppins(textStyle:
-                   TextStyle(color: Colors.black,fontSize: 20.sp,fontWeight: FontWeight.bold),),),
+                   TextStyle(color: Colors.black,fontSize: 20.sp,fontWeight: FontWeight.w600),),),
          SizedBox(height: 25.h,),
                 Text("Mobile Number",style:
                 GoogleFonts.poppins(textStyle:

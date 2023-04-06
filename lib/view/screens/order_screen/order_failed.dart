@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nectar/view/screens/layout/layout.dart';
 import 'package:nectar/viewModel/cubit/main_cubit/nectar_cubit.dart';
 import 'package:nectar/viewModel/cubit/main_cubit/nectar_state.dart';
 
@@ -43,7 +44,7 @@ class OrderFailed extends StatelessWidget {
           ),
           SizedBox(height: 10.h,),
           TextButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>Layout()));
           }, child: Text("Back to home",style:
           GoogleFonts.poppins(textStyle:
           TextStyle(fontSize: 16.sp,fontWeight: FontWeight.w600,color: Colors.black),)))

@@ -82,21 +82,37 @@ class BottomSheetDetails extends StatelessWidget {
               Text("By placing an order you agree to our",style:
               GoogleFonts.poppins(textStyle:
               TextStyle(fontSize: 14.sp,fontWeight: FontWeight.bold,color: grey),)),
+           SizedBox(height: 5.h,),
             Row( crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-              TextButton(onPressed:(){} , child: Text("Terms",
+              TextButton(
+                style: TextButton.styleFrom(
+                  padding: EdgeInsets.zero,
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  minimumSize: Size(10.w, 10.h),
+                  maximumSize: Size(double.infinity, 20.h),
+                ),
+                onPressed:(){} , child: Text("Terms",
                   style:
         GoogleFonts.poppins(textStyle:
-        TextStyle(fontSize: 14.sp,fontWeight: FontWeight.bold,color: Colors.black),)),
+        TextStyle(fontSize: 14.sp,fontWeight: FontWeight.w500,color: Colors.black),)),
         ),
+              SizedBox(width: 5.w,),
               Text("and",style:
               GoogleFonts.poppins(textStyle:
               TextStyle(fontSize: 14.sp,fontWeight: FontWeight.bold,color: grey),)),
-              TextButton(
+                SizedBox(width: 5.w,),
+                TextButton(
+                style: TextButton.styleFrom(
+                  padding: EdgeInsets.zero,
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  minimumSize: Size(10.w, 10.h),
+                  maximumSize: Size(double.infinity, 20.h),
+                ),
                 onPressed:(){} , child: Text("Conditions",style:
               GoogleFonts.poppins(textStyle:
-              TextStyle(fontSize: 14.sp,fontWeight: FontWeight.bold,color: Colors.black),)),
+              TextStyle(fontSize: 14.sp,fontWeight: FontWeight.w500,color: Colors.black),)),
               ),
 
             ],),

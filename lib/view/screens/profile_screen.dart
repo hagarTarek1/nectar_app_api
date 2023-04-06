@@ -30,8 +30,18 @@ class ProfileScreen extends StatelessWidget {
                 children: [
                   Text("user",style:
                   GoogleFonts.poppins(textStyle:
-                  TextStyle(fontSize: 15.sp,fontWeight: FontWeight.bold,color: grey),),),
-                IconButton(onPressed: (){}, icon: Icon(Icons.edit,color: green,))
+                  TextStyle(fontSize: 15.sp,fontWeight: FontWeight.bold),),),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 17,left: 3),
+                  child: TextButton(
+                      style: TextButton.styleFrom(
+                        padding: EdgeInsets.zero,
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        minimumSize: Size(5.w, 5.h),
+                        maximumSize: Size(double.infinity, 5.h),
+                      ),
+                      onPressed: (){}, child: Icon(Icons.edit_outlined,color: green,size: 22,)),
+                )
                 ],
               ),
           Text("Email",style:

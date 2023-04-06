@@ -43,7 +43,7 @@ class LoginScreen extends StatelessWidget {
                           style: GoogleFonts.poppins(
                             textStyle: TextStyle(
                                 color: Colors.black,
-                                fontSize: 20.sp,
+                                fontSize: 22.sp,
                                 fontWeight: FontWeight.w600),
                           ),
                         ),
@@ -89,6 +89,7 @@ class LoginScreen extends StatelessWidget {
                                   },
                                   decoration: InputDecoration(
                                     hintText: "Email",
+                                    hintStyle: TextStyle(fontSize: 15.sp,color: grey),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide:
                                           BorderSide(color: lightGrey),
@@ -124,6 +125,7 @@ class LoginScreen extends StatelessWidget {
                                   obscureText: cubit.isObscure,
                                   decoration: InputDecoration(
                                     hintText: "password",
+                                    hintStyle: TextStyle(fontSize: 15.sp,color: grey),
                                     suffixIcon: IconButton(
                                       onPressed: () {
                                         cubit.showPassword();
@@ -154,6 +156,7 @@ class LoginScreen extends StatelessWidget {
                                         textStyle: TextStyle(
                                             color: Color(0xff181725),
                                             fontSize: 12.sp,
+                                            height: 2.h,
                                             fontWeight: FontWeight.w600),
                                       ),
                                     ),
@@ -200,9 +203,17 @@ class LoginScreen extends StatelessWidget {
                                 style: GoogleFonts.poppins(
                                   textStyle: TextStyle(
                                       fontSize: 12.sp,
+                                      height: 3.h,
                                       fontWeight: FontWeight.bold),
                                 )),
+                            SizedBox(width: 5.w,),
                             TextButton(
+                              style: TextButton.styleFrom(
+                                padding: EdgeInsets.zero,
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                minimumSize: Size(10.w, 10.h),
+                                maximumSize: Size(double.infinity, 30.h),
+                              ),
                               onPressed: () {
                                 Navigator.push(
                                     context,
@@ -215,6 +226,7 @@ class LoginScreen extends StatelessWidget {
                                   textStyle: TextStyle(
                                       color: green,
                                       fontSize: 12.sp,
+                                      height: 2.5.h,
                                       fontWeight: FontWeight.w600),
                                 ),
                               ),
