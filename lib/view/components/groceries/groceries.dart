@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nectar/model/allCategories.dart';
 import 'package:nectar/viewModel/cubit/main_cubit/nectar_cubit.dart';
 import 'package:nectar/viewModel/cubit/main_cubit/nectar_state.dart';
 import 'dart:math' as math;
 
 class Groceries extends StatelessWidget {
-  const Groceries({Key? key}) : super(key: key);
+  final int id;
+  Category? category;
+  Groceries({required this.category,required this.id,Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -37,13 +40,15 @@ class Groceries extends StatelessWidget {
                     SizedBox(
                       width: 10.w,
                     ),
-                    Text(
-                      "Pulses",
-                      style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                            color: Colors.black,
-                            fontSize: 17.sp,
-                            fontWeight: FontWeight.w600),
+                    Expanded(
+                      child: Text(
+                        category?.name ?? "",
+                        style: GoogleFonts.poppins(
+                          textStyle: TextStyle(
+                              color: Colors.black,
+                              fontSize: 17.sp,
+                              fontWeight: FontWeight.w600),
+                        ),
                       ),
                     ),
                   ],

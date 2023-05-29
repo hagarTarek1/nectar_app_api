@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -9,7 +10,8 @@ import 'package:nectar/viewModel/cubit/main_cubit/nectar_state.dart';
 
 import '../../viewModel/cubit/main_cubit/nectar_cubit.dart';
 class DetailsExclusive extends StatelessWidget {
-  const DetailsExclusive({Key? key}) : super(key: key);
+  List imgList=["assets/pngfuel 1.png"];
+   DetailsExclusive({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +41,17 @@ class DetailsExclusive extends StatelessWidget {
                       ),
                   ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 100,left: 25),
-                      child: Image.asset("assets/pngfuel 1.png",height: 200,width: 320,fit: BoxFit.fill,),
+                      padding: const EdgeInsets.only(top: 90,left: 25),
+                      child:  CarouselSlider(
+                          options: CarouselOptions(
+                            autoPlay: true,
+                            //aspectRatio: 19 / 6,
+                            enlargeCenterPage: true,
+                            viewportFraction: 0.8,
+                          ),
+                          items: imgList
+                              .map((item)=> Image.asset(item,height: 400,width: 320,fit: BoxFit.fill,), ).toList(),),
+                      //Image.asset("assets/pngfuel 1.png",height: 200,width: 320,fit: BoxFit.fill,),
                     ),
                Padding(
                    padding: const EdgeInsets.only(top: 375,left: 20,right: 20),

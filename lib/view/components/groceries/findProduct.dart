@@ -6,8 +6,11 @@ import 'package:nectar/viewModel/cubit/main_cubit/nectar_cubit.dart';
 import 'package:nectar/viewModel/cubit/main_cubit/nectar_state.dart';
 import 'dart:math' as math;
 
+import '../../model/allCategories.dart';
+
 class FindProducts extends StatelessWidget {
-  const FindProducts({Key? key}) : super(key: key);
+  Category? categories;
+   FindProducts({required this.categories,Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +21,6 @@ class FindProducts extends StatelessWidget {
             borderRadius: BorderRadius.circular(20.r),
             clipBehavior: Clip.antiAliasWithSaveLayer,
             child: SizedBox(
-              // width: 165.w,
               height: 150.h,
               child: Card(
                 margin: EdgeInsets.zero,
@@ -26,7 +28,8 @@ class FindProducts extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   side: BorderSide(
                     color: Color(randomColor),
-                     style: BorderStyle.solid,
+                     width: 2.5.w
+                     //style: BorderStyle.solid,
                   ),
                   borderRadius: BorderRadius.circular(20.r),
                 ),
@@ -44,7 +47,7 @@ class FindProducts extends StatelessWidget {
                           height: 20.h,
                         ),
                         Text(
-                          "Frash Fruits & Vegetable",
+                          categories?.name ??"",
                           style: GoogleFonts.poppins(
                             textStyle: TextStyle(
                                 fontSize: 15.sp,

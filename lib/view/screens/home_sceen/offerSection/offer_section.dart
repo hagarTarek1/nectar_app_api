@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nectar/consts/consts.dart';
+import 'package:nectar/model/getAllProduct.dart';
 import 'package:nectar/viewModel/cubit/main_cubit/nectar_state.dart';
 
 import '../../../viewModel/cubit/main_cubit/nectar_cubit.dart';
@@ -14,6 +15,7 @@ class OfferSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<NectarCubit,NectarState>(builder: (context,state){
+      var cubit=NectarCubit.get(context);
       return Padding(
         padding: const EdgeInsets.only(left: 10,right: 10,top: 10),
         child: Column(
@@ -52,12 +54,12 @@ class OfferSection extends StatelessWidget {
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
-                      return ExclusiveOffer();
+                      return ExclusiveOffer(offers: cubit.getAllProducts?.data?.offers?[index] ?? Offers());
                     },
                     separatorBuilder: (context, index) => SizedBox(
                       width: 20.w,
                     ),
-                    itemCount: 3)),
+                    itemCount: cubit.getAllProducts?.data?.offers?.length ?? 0)),
           ],
         ),
       );

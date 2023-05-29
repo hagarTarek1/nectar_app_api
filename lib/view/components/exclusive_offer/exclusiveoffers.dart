@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nectar/model/getAllProduct.dart';
 import 'package:nectar/viewModel/cubit/main_cubit/nectar_cubit.dart';
 import 'package:nectar/viewModel/cubit/main_cubit/nectar_state.dart';
 
 import '../../consts/consts.dart';
-import '../screens/details_exclusiveOffer.dart';
+import '../screens/details_exclusive_offer/details_exclusiveOffer.dart';
 
 class ExclusiveOffer extends StatelessWidget {
-  const ExclusiveOffer({Key? key}) : super(key: key);
+ Offers? offers;
+   ExclusiveOffer({required this.offers,Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class ExclusiveOffer extends StatelessWidget {
                 child: InkWell(
                   onTap: () {
                      Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => DetailsExclusive()));
+                        MaterialPageRoute(builder: (context) => DetailsExclusive(id: offers?.id ?? 0,)));
                   },
                   child: Padding(
                     padding:
@@ -44,7 +46,7 @@ class ExclusiveOffer extends StatelessWidget {
                         ),
                         Expanded( flex: 1,
                           child: Text(
-                            "Red Apple",
+                            offers?.name ??"",
                             overflow: TextOverflow.fade,
                             maxLines: 1,
                             style: GoogleFonts.poppins(
@@ -60,7 +62,7 @@ class ExclusiveOffer extends StatelessWidget {
                         // ),
                         Expanded( flex: 1,
                           child: Text(
-                            "1kg, Priceg",
+                            "${offers?.quantity}kg, Priceg",
                             style: GoogleFonts.poppins(
                               textStyle: TextStyle(
                                   color: grey,
@@ -76,7 +78,7 @@ class ExclusiveOffer extends StatelessWidget {
                           child: Row(
                             children: [
                               Text(
-                                "\$4.99",
+                                "\$${offers?.price}",
                                 style: GoogleFonts.poppins(
                                   textStyle: TextStyle(
                                     color: Colors.black,

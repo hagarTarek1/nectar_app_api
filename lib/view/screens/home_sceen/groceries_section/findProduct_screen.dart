@@ -6,29 +6,33 @@ import 'package:nectar/consts/consts.dart';
 import 'package:nectar/view/components/findProduct.dart';
 import 'package:nectar/viewModel/cubit/main_cubit/nectar_cubit.dart';
 import 'package:nectar/viewModel/cubit/main_cubit/nectar_state.dart';
+import '../../model/allCategories.dart';
 
 class FindProductScreen extends StatelessWidget {
   const FindProductScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var cubit=NectarCubit.get(context);
     return BlocConsumer<NectarCubit, NectarState>(
         builder: (context, state) {
           return Scaffold(
-            // extendBodyBehindAppBar: true,
             backgroundColor: backGround,
             appBar: AppBar(
-              toolbarHeight: 80,
+              toolbarHeight: 70,
               backgroundColor: Colors.transparent,
               elevation: 0,
               centerTitle: true,
-              title: Text(
-                "Find Products",
-                style: GoogleFonts.poppins(
-                  textStyle: TextStyle(
-                      fontSize: 18.sp,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
+              title: Padding(
+                padding: const EdgeInsets.only(top: 10),
+                child: Text(
+                  "Find Products",
+                  style: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
+                  ),
                 ),
               ),
             ),
@@ -63,7 +67,10 @@ class FindProductScreen extends StatelessWidget {
                       crossAxisSpacing: 10,
                       shrinkWrap: true,
                       clipBehavior: Clip.none,
-                      children: List.generate(10, (index) => FindProducts()),
+                      children: List.generate(
+                      cubit.allCategories?.data?.categories?.length ??0, (index) => FindProducts(categories: cubit.allCategories?.data
+                          ?.categories?[index] ??
+                          Category() ,)),
                     ),
                   )
                 ],
